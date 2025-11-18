@@ -1,0 +1,57 @@
+{% extends "employe/base.html" %}
+
+
+{% block content %}
+
+
+<div class="w-full bg-base-200">
+    <div mb-4>
+        <a href="{% url 'ajouter_employe' %}" class="btn btn-outline btn-primary w-full">Ajouter un employé</a>
+    </div>
+
+    <div class="space-y-4 w-full">
+
+        {% for emp in employes%}
+        <div class="p-4 bg base-100 rounded-lg w-full flex justify-between items-center">
+
+            <div class="space-y-2">
+                <p class="font-bold text-lg">{{emp.nom}}</p>
+                <p class="badge badge-soft badge-primary">{{emp.email}}</p>
+
+                <div>
+                    <p class="badge badge-soft badge-primary">{{emp.poste}}</p>
+                    <p class="badge badge-dash badge-primary">{{emp.salaire}}$</p>
+                </div>
+
+            </div>
+
+            <div class="space-x-2">
+                <a href="{% url 'modifier_employe' emp.id %}" class="btn btn-outline btn-primary">Modifier</a>
+                <a href="{% url 'supprimer_employe' emp.id %}" class="btn btn-soft btn-error ">Supprimer</a>
+            </div>
+
+        </div>
+
+        {%endfor%}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    test
+</body>
+</html> -->
